@@ -1,6 +1,6 @@
 <script setup>
-  const { data: products } = await useFetch('https://news.clowerweb.com/');
-  console.log(products);
+  const data = await $fetch('https://news.clowerweb.com/');
+  console.log(data);
 
   useHead({
     title: 'News | Itsy News',
@@ -22,8 +22,8 @@
   <h2>News</h2>
 
   <div class="grid grid-cols-4 gap-5">
-    <div v-for="p in products">
-      <Card :product="p" />
+    <div v-for="d in data">
+      <Card :data="d" />
     </div>
   </div>
 </template>
