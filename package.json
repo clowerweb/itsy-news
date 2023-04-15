@@ -9,7 +9,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@netlify/functions": "^1.4.0",
     "@nuxtjs/tailwindcss": "^6.6.6",
+    "netlify-cli": "^13.2.2",
     "nuxt": "^3.4.0"
   }
 }

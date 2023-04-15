@@ -1,0 +1,4 @@
+[build]
+  command = "nuxt build && nuxt export"
+  publish = "dist"
+  functions = "netlify/functions"

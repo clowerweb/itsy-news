@@ -3,6 +3,9 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/tailwindcss',
 	],
+	build: {
+		target: 'static'
+	},
 	app: {
 		head: {
 			title: 'Itsy News',
