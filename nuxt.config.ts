@@ -3,9 +3,6 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/tailwindcss',
 	],
-	routeRules: {
-		'*': { static: true }
-	},
 	app: {
 		head: {
 			title: 'Itsy News',
