@@ -3,8 +3,8 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/tailwindcss',
 	],
-	build: {
-		target: 'static'
+	routeRules: {
+		'*': { static: true }
 	},
 	app: {
 		head: {

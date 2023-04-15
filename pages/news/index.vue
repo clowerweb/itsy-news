@@ -1,6 +1,5 @@
 <script setup>
-  const data = await $fetch('https://news.clowerweb.com/');
-  console.log(data);
+  const { data: posts } = await useFetch('https://news.clowerweb.com/');
 
   useHead({
     title: 'News | Itsy News',
@@ -22,8 +21,8 @@
   <h2>News</h2>
 
   <div class="grid grid-cols-4 gap-5">
-    <div v-for="d in data">
-      <Card :data="d" />
+    <div v-for="p in posts">
+      <Card :post="p" />
     </div>
   </div>
 </template>
