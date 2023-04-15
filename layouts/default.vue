@@ -17,11 +17,6 @@
               News
             </NuxtLink>
           </li>
-          <li class="inline-block">
-            <NuxtLink to="/news/test" class="block px-3 py-4 font-bold text-white">
-              Test
-            </NuxtLink>
-          </li>
         </ul>
       </nav>
     </div>

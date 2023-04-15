@@ -14,7 +14,4 @@ export default defineNuxtConfig({
 			]
 		}
 	},
-	routeRules: {
-		'*': { static: true }
-	},
 })
