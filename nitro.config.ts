@@ -2,8 +2,8 @@ import { defineNitroConfig } from "nitropack";
 
 export default defineNitroConfig({
 	routeRules: {
-		'*': { static: true },
-		'/news/**': { static: true },
+		'/': { static: true },
+		'/about': { static: true },
 		'/news': { swr: 60 },
 	}
 });
