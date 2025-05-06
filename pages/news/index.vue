@@ -43,50 +43,59 @@
 
 <template>
   <div>
-    <!-- Page Header -->
-    <div class="bg-gradient-to-r from-itsy-blue to-itsy-blue/80 rounded-xl p-6 md:p-8 mb-12 text-itsy-white relative overflow-hidden">
-      <div class="relative z-10">
-        <h1 class="text-3xl font-bold mb-3">News Categories</h1>
-        <p class="text-itsy-white/90 text-lg">Browse all our condensed news stories by category</p>
+    <!-- Improved Page Header with modern design -->
+    <div class="bg-gradient-to-r from-itsy-blue via-itsy-blue/90 to-itsy-blue/80 rounded-xl p-8 md:p-10 mb-12 text-itsy-white relative overflow-hidden shadow-lg">
+      <div class="relative z-10 max-w-2xl">
+        <h1 class="text-3xl md:text-4xl font-bold mb-3 flex items-center">
+          <span class="bg-itsy-yellow text-itsy-black rounded px-2 py-1 mr-3 shadow-sm">News</span>
+          <span>Categories</span>
+        </h1>
+        <p class="text-itsy-white/90 text-lg leading-relaxed">Browse all our condensed news stories by category</p>
       </div>
-      <!-- Abstract pattern overlay -->
+      <!-- Abstract geometric pattern overlay -->
       <div class="absolute right-0 top-0 w-full h-full opacity-10 pointer-events-none">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full">
-          <path fill="#ffffff" d="M0,0 L100,0 C80,20 90,50 100,100 L0,100 Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 800">
+          <defs>
+            <pattern id="pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+              <path d="M0,40 L40,0 L80,40 L40,80 Z" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+              <circle cx="40" cy="40" r="3" fill="#ffffff"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#pattern)"/>
         </svg>
       </div>
     </div>
 
-    <!-- Category Navigation Pills -->
-    <div class="mb-8 overflow-x-auto pb-2">
-      <div class="flex space-x-2 min-w-max">
+    <!-- Improved Category Navigation Pills -->
+    <div class="mb-12 overflow-x-auto category-nav-container">
+      <div class="flex space-x-3 min-w-max p-1">
         <NuxtLink
           v-for="category in categories"
           :key="category.slug"
           :to="`/news/${category.slug}`"
-          class="px-4 py-2 bg-itsy-white border border-itsy-black/10 rounded-full inline-flex items-center hover:bg-itsy-teal/20 hover:border-itsy-teal/20 transition-colors"
+          class="px-4 py-2 bg-white border border-itsy-black/5 rounded-full inline-flex items-center hover:bg-itsy-teal/10 hover:border-itsy-teal/30 transition-all duration-200 shadow-sm hover:shadow"
         >
-          <span class="mr-2">{{ category.icon }}</span>
-          <span>{{ category.name }}</span>
+          <span class="mr-2 text-xl">{{ category.icon }}</span>
+          <span class="font-medium">{{ category.name }}</span>
         </NuxtLink>
       </div>
     </div>
 
-    <!-- All Categories Grid -->
+    <!-- All Categories Grid with improved design -->
     <div class="space-y-16">
       <section v-for="category in categories" :key="category.slug" class="category-section">
-        <div class="flex justify-between items-center mb-6 pb-2 border-b border-neutral-200">
+        <div class="flex justify-between items-center mb-6 pb-2 border-b border-itsy-black/10">
           <h2 class="text-2xl font-bold flex items-center">
-            <span class="bg-itsy-blue w-2 h-6 inline-block mr-3 rounded-sm"></span>
-            <span class="mr-2">{{ category.icon }}</span>
+            <span class="bg-gradient-to-r from-itsy-blue to-itsy-teal w-2 h-6 inline-block mr-3 rounded-sm"></span>
+            <span class="mr-2 bg-itsy-blue/10 text-itsy-blue p-1 rounded">{{ category.icon }}</span>
             {{ category.name }}
           </h2>
           <NuxtLink
             :to="`/news/${category.slug}`"
-            class="text-itsy-red hover:text-itsy-red/80 font-medium transition-colors flex items-center"
+            class="text-itsy-red hover:text-itsy-red/80 font-medium transition-colors flex items-center group"
           >
             View More
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </NuxtLink>
@@ -111,13 +120,23 @@
           </div>
         </div>
         
-        <div v-else class="bg-itsy-white p-6 rounded-lg text-center">
-          <p class="text-neutral-600">No articles available for this category yet.</p>
+        <div v-else class="bg-itsy-white p-8 rounded-lg text-center shadow-sm border border-itsy-black/5">
+          <p class="text-itsy-black/70">No articles available for this category yet.</p>
         </div>
       </section>
     </div>
 
-    <newsletter-form />
+    <!-- Newsletter form with more modern design -->
+    <section class="bg-gradient-to-r from-itsy-teal/10 to-itsy-blue/10 rounded-xl p-8 my-12">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-3 text-itsy-black">Stay Updated with Itsy News</h2>
+        <p class="text-itsy-black/70 mb-6">Get the latest condensed news delivered straight to your inbox</p>
+        
+        <NewsletterForm />
+        
+        <p class="text-xs text-itsy-black/50 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -127,11 +146,11 @@
   padding-bottom: 0;
 }
 
-/* Smooth transitions */
+/* Enhanced smooth transitions */
 .category-section {
-  animation: fadeInUp 0.5s ease forwards;
+  animation: fadeInUp 0.6s ease forwards;
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(15px);
 }
 
 .category-section:nth-child(1) { animation-delay: 0.1s; }
@@ -148,5 +167,13 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Improved category navigation */
+.category-nav-container {
+  border-radius: 9999px;
+  background: linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0.8));
+  padding: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 </style>
