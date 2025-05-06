@@ -26,49 +26,49 @@
 </script>
 
 <template>
-  <div :class="['news-card overflow-hidden bg-white rounded-lg shadow-md h-full transition-transform hover:shadow-lg hover:-translate-y-1', 
+  <div :class="['news-card overflow-hidden bg-itsy-white rounded-lg shadow-sm h-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 border border-itsy-white/60',
                {'md:flex': featured}]">
     <!-- Article Image -->
-    <div :class="['news-card__image-container relative overflow-hidden', 
+    <div :class="['news-card__image-container relative overflow-hidden',
                  featured ? 'md:w-2/5' : 'aspect-video']">
-      <img 
-        :src="post.image || 'https://placehold.co/600x400/e2e8f0/475569?text=Itsy+News'" 
-        :alt="post.title"
-        class="w-full h-full object-cover"
+      <img
+          :src="post.image || 'https://placehold.co/600x400/e2e8f0/475569?text=Itsy+News'"
+          :alt="post.title"
+          class="w-full h-full object-cover"
       />
       <!-- Category Badge -->
-      <div class="absolute top-3 left-3 bg-red-600 text-white text-xs font-medium px-2 py-1 rounded">
+      <div class="absolute top-3 left-3 bg-itsy-blue text-itsy-white text-xs font-medium px-2 py-1 rounded-full">
         {{ post.category || 'News' }}
       </div>
     </div>
-    
+
     <!-- Article Content -->
-    <div :class="['news-card__content p-4', featured ? 'md:w-3/5' : '']">
+    <div :class="['news-card__content p-5', featured ? 'md:w-3/5' : '']">
       <!-- Source and Time -->
-      <div class="flex justify-between items-center mb-2 text-xs text-gray-500">
+      <div class="flex justify-between items-center mb-2 text-xs text-itsy-black/60">
         <span class="font-medium">{{ post.source || 'Itsy News' }}</span>
         <span>{{ post.date ? getTimeAgo(post.date) : '1h ago' }}</span>
       </div>
-      
+
       <!-- Title -->
-      <h3 :class="['news-card__title font-bold leading-tight mb-2', 
+      <h3 :class="['news-card__title font-bold leading-tight mb-2 text-itsy-black',
                   featured ? 'text-xl' : 'text-lg']">
         {{ post.title }}
       </h3>
-      
+
       <!-- Summary -->
-      <p class="news-card__summary text-gray-600 text-sm mb-3 line-clamp-2">
+      <p class="news-card__summary text-itsy-black/70 text-sm mb-3 line-clamp-3">
         {{ post.summary || post.description || 'No summary available for this article.' }}
       </p>
-      
+
       <!-- Footer -->
       <div class="flex justify-between items-center mt-auto pt-2 text-xs">
-        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded">
+        <span class="bg-itsy-teal/10 text-itsy-blue px-2 py-1 rounded-full">
           {{ post.readTime || '~1 min read' }}
         </span>
-        <NuxtLink 
-          :to="post.url || '/news/' + (post.slug || 'article')" 
-          class="font-medium text-red-600 hover:text-red-800"
+        <NuxtLink
+            :to="post.url || '/news/' + (post.slug || 'article')"
+            class="font-medium text-itsy-red hover:text-itsy-red/80 transition-colors"
         >
           Read More
         </NuxtLink>
@@ -81,11 +81,28 @@
 .news-card {
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
-.line-clamp-2 {
+.news-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(to bottom, theme('colors.itsy-blue'), theme('colors.itsy-red'));
+  transition: height 0.3s ease;
+}
+
+.news-card:hover::after {
+  height: 100%;
+}
+
+.line-clamp-3 {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

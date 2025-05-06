@@ -1,4 +1,6 @@
 <script setup>
+  import NewsletterForm from "~/components/newsletter-form.vue";
+
   const { data: posts } = await useFetch('https://news.clowerweb.com/');
 
   // Define categories with sample articles
@@ -41,21 +43,52 @@
 
 <template>
   <div>
-    <h1 class="text-3xl font-bold mb-8">News Categories</h1>
+    <!-- Page Header -->
+    <div class="bg-gradient-to-r from-itsy-blue to-itsy-blue/80 rounded-xl p-6 md:p-8 mb-12 text-itsy-white relative overflow-hidden">
+      <div class="relative z-10">
+        <h1 class="text-3xl font-bold mb-3">News Categories</h1>
+        <p class="text-itsy-white/90 text-lg">Browse all our condensed news stories by category</p>
+      </div>
+      <!-- Abstract pattern overlay -->
+      <div class="absolute right-0 top-0 w-full h-full opacity-10 pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full">
+          <path fill="#ffffff" d="M0,0 L100,0 C80,20 90,50 100,100 L0,100 Z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Category Navigation Pills -->
+    <div class="mb-8 overflow-x-auto pb-2">
+      <div class="flex space-x-2 min-w-max">
+        <NuxtLink
+          v-for="category in categories"
+          :key="category.slug"
+          :to="`/news/${category.slug}`"
+          class="px-4 py-2 bg-itsy-white border border-itsy-black/10 rounded-full inline-flex items-center hover:bg-itsy-teal/20 hover:border-itsy-teal/20 transition-colors"
+        >
+          <span class="mr-2">{{ category.icon }}</span>
+          <span>{{ category.name }}</span>
+        </NuxtLink>
+      </div>
+    </div>
 
     <!-- All Categories Grid -->
     <div class="space-y-16">
       <section v-for="category in categories" :key="category.slug" class="category-section">
-        <div class="flex justify-between items-center mb-6 pb-2 border-b border-slate-200">
+        <div class="flex justify-between items-center mb-6 pb-2 border-b border-neutral-200">
           <h2 class="text-2xl font-bold flex items-center">
+            <span class="bg-itsy-blue w-2 h-6 inline-block mr-3 rounded-sm"></span>
             <span class="mr-2">{{ category.icon }}</span>
             {{ category.name }}
           </h2>
-          <NuxtLink 
-            :to="`/news/${category.slug}`" 
-            class="text-red-600 hover:text-red-700 font-medium"
+          <NuxtLink
+            :to="`/news/${category.slug}`"
+            class="text-itsy-red hover:text-itsy-red/80 font-medium transition-colors flex items-center"
           >
             View More
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
           </NuxtLink>
         </div>
 
@@ -78,11 +111,13 @@
           </div>
         </div>
         
-        <div v-else class="bg-slate-100 p-6 rounded-lg text-center">
-          <p class="text-slate-600">No articles available for this category yet.</p>
+        <div v-else class="bg-itsy-white p-6 rounded-lg text-center">
+          <p class="text-neutral-600">No articles available for this category yet.</p>
         </div>
       </section>
     </div>
+
+    <newsletter-form />
   </div>
 </template>
 
@@ -90,5 +125,28 @@
 .category-section:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+/* Smooth transitions */
+.category-section {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.category-section:nth-child(1) { animation-delay: 0.1s; }
+.category-section:nth-child(2) { animation-delay: 0.2s; }
+.category-section:nth-child(3) { animation-delay: 0.3s; }
+.category-section:nth-child(4) { animation-delay: 0.4s; }
+.category-section:nth-child(5) { animation-delay: 0.5s; }
+.category-section:nth-child(6) { animation-delay: 0.6s; }
+.category-section:nth-child(7) { animation-delay: 0.7s; }
+.category-section:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
