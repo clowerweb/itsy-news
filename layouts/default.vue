@@ -37,14 +37,14 @@ const mobileMenuOpen = ref(false);
 
         <!-- Mobile menu button with improved animation -->
         <button class="md:hidden text-itsy-white focus:outline-none" @click="mobileMenuOpen = !mobileMenuOpen">
-          <div class="w-6 h-5 relative transform transition-all duration-300">
+          <span class="block w-6 h-5 relative transform transition-all duration-300">
             <span class="absolute bg-itsy-white h-0.5 w-full rounded-lg transition-all duration-300"
                   :class="mobileMenuOpen ? 'rotate-45 top-2' : 'top-0'"></span>
             <span class="absolute bg-itsy-white h-0.5 w-full rounded-lg top-2 transition-opacity duration-300"
                   :class="mobileMenuOpen ? 'opacity-0' : 'opacity-100'"></span>
             <span class="absolute bg-itsy-white h-0.5 w-full rounded-lg transition-all duration-300"
                   :class="mobileMenuOpen ? '-rotate-45 top-2' : 'top-4'"></span>
-          </div>
+          </span>
         </button>
       </div>
     </div>
