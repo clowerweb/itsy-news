@@ -2,7 +2,8 @@
 // Fetch articles from API (this would be replaced with your actual API endpoint)
 import NewsletterForm from "~/components/newsletter-form.vue";
 
-const { data: articles } = await useFetch('https://news.clowerweb.com/');
+//const { data: articles } = await useFetch('https://news.clowerweb.com/');
+const articles = [];
 
 // For demonstration, split articles into featured and regular
 const featuredArticles = computed(() => {

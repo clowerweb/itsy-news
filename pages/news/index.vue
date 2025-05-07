@@ -1,7 +1,8 @@
 <script setup>
   import NewsletterForm from "~/components/newsletter-form.vue";
 
-  const { data: posts } = await useFetch('https://news.clowerweb.com/');
+  //const { data: articles } = await useFetch('https://news.clowerweb.com/');
+  const articles = [];
 
   // Define categories with sample articles
   const categories = [
@@ -18,11 +19,11 @@
   // For demonstration, assign articles to categories randomly
   // In a real implementation, this would come from your backend with proper categorization
   const getCategoryArticles = (categorySlug) => {
-    if (!posts.value) return [];
+    if (!articles.value) return [];
     // In a real implementation, filter articles by category
     // For demo purposes, just take a slice of the array
     const startIndex = categories.findIndex(cat => cat.slug === categorySlug) * 3 % (posts.value.length || 1);
-    return posts.value.slice(startIndex, startIndex + 3);
+    return articles.value.slice(startIndex, startIndex + 3);
   };
 
   useHead({
