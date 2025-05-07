@@ -188,7 +188,7 @@ const mobileMenuOpen = ref(false);
       transition: all 0.2s ease-in-out;
 
       &.router-link-exact-active {
-        color: theme("colors.itsy-yellow");
+        color: theme("colors.itsy-orange");
         background-color: theme("colors.itsy-white/10");
         font-weight: 600;
       }
