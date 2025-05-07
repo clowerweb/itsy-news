@@ -66,7 +66,7 @@
     </div>
 
     <!-- All Categories Grid -->
-    <div class="space-y-16">
+    <div class="space-y-16 mb-16">
       <section v-for="category in categories" :key="category.slug" class="category-section">
         <div class="flex justify-between items-center mb-6 pb-2 border-b border-itsy-black/10">
           <h2 class="text-2xl font-bold flex items-center">
@@ -111,16 +111,7 @@
     </div>
 
     <!-- Newsletter form -->
-    <section class="bg-gradient-to-r from-itsy-teal/10 to-itsy-blue/10 rounded-xl p-8 my-12">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl font-bold mb-3 text-itsy-black">Stay Updated with Itsy News</h2>
-        <p class="text-itsy-black/70 mb-6">Get the latest condensed news delivered straight to your inbox</p>
-        
-        <NewsletterForm />
-        
-        <p class="text-xs text-itsy-black/50 mt-4">We respect your privacy. Unsubscribe at any time.</p>
-      </div>
-    </section>
+    <NewsletterForm />
   </div>
 </template>
 

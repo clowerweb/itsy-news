@@ -89,9 +89,10 @@
     </div>
     
     <div v-if="latestArticles.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <Card v-for="(article, index) in latestArticles.slice(0, 8)" 
-            :key="index" 
-            :post="article" />
+      <Card
+        v-for="(article, index) in latestArticles.slice(0, 8)"
+        :key="index"
+        :post="article" />
     </div>
     
     <div v-else class="bg-itsy-white p-8 rounded-lg text-center shadow-sm border border-itsy-black/5">
@@ -122,16 +123,7 @@
   </section>
 
   <!-- Newsletter form -->
-  <section class="bg-gradient-to-r from-itsy-teal/10 to-itsy-blue/10 rounded-xl p-8 mb-12">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-3 text-itsy-black">Stay Updated with Itsy News</h2>
-      <p class="text-itsy-black/70 mb-6">Get the latest condensed news delivered straight to your inbox</p>
-      
-      <NewsletterForm />
-      
-      <p class="text-xs text-itsy-black/50 mt-4">We respect your privacy. Unsubscribe at any time.</p>
-    </div>
-  </section>
+  <NewsletterForm />
 </template>
 
 <style scoped>

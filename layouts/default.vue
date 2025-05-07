@@ -1,9 +1,9 @@
 <script setup>
-const mobileMenuOpen = ref(false);
+  const mobileMenuOpen = ref(false);
 </script>
 
 <template>
-  <!-- Header with improved design -->
+  <!-- Header -->
   <header class="bg-gradient-to-r from-itsy-blue to-itsy-blue/90 shadow-md sticky top-0 z-50 transition-all duration-300">
     <div class="container mx-auto px-4 py-3">
       <div class="flex items-center justify-between">
@@ -35,7 +35,7 @@ const mobileMenuOpen = ref(false);
           </ul>
         </nav>
 
-        <!-- Mobile menu button with improved animation -->
+        <!-- Mobile menu button -->
         <button class="md:hidden text-itsy-white focus:outline-none" @click="mobileMenuOpen = !mobileMenuOpen">
           <span class="block w-6 h-5 relative transform transition-all duration-300">
             <span class="absolute bg-itsy-white h-0.5 w-full rounded-lg transition-all duration-300"
@@ -80,7 +80,7 @@ const mobileMenuOpen = ref(false);
     </div>
   </main>
 
-  <!-- Enhanced footer with more information and links -->
+  <!-- Footer -->
   <footer class="bg-gradient-to-br from-itsy-black to-itsy-black/95 text-itsy-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -167,7 +167,7 @@ const mobileMenuOpen = ref(false);
         </div>
       </div>
       
-      <!-- Copyright with modern styling -->
+      <!-- Copyright -->
       <div class="mt-10 pt-6 border-t border-itsy-white/10 text-center">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <p class="text-itsy-white/50 text-sm">
