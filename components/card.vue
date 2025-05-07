@@ -1,13 +1,17 @@
 <template>
-  <div :class="['news-card bg-itsy-white rounded-lg shadow-sm h-full transition-all duration-300 hover:shadow-md border border-itsy-black/5',
-               {'md:flex': featured}]">
+  <div :class="[
+    'news-card bg-itsy-white rounded-lg shadow-sm h-full transition-all duration-300 hover:shadow-md border border-itsy-black/5',
+    {'md:flex': featured}
+  ]">
     <!-- Article Image with gradient overlay -->
-    <div :class="['news-card__image-container relative overflow-hidden',
-                 featured ? 'md:w-2/5 h-auto' : 'aspect-video']">
+    <div :class="[
+      'news-card__image-container relative overflow-hidden',
+      featured ? 'md:w-2/5 h-auto' : 'aspect-video'
+    ]">
       <img
-          :src="post.image || 'https://placehold.co/600x400/e2e8f0/475569?text=Itsy+News'"
-          :alt="post.title"
-          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        :src="post.image || 'https://placehold.co/600x400/e2e8f0/475569?text=Itsy+News'"
+        :alt="post.title"
+        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
       />
       <!-- Gradient overlay -->
       <div class="absolute inset-0 bg-gradient-to-t from-itsy-black/50 to-transparent opacity-70"></div>
@@ -34,8 +38,10 @@
       </div>
 
       <!-- Title -->
-      <h3 :class="['news-card__title font-bold leading-tight mb-3 text-itsy-black transition-colors duration-300 group-hover:text-itsy-blue',
-                  featured ? 'text-xl md:text-2xl' : 'text-lg']">
+      <h3 :class="[
+        'news-card__title font-bold leading-tight mb-3 text-itsy-black transition-colors duration-300 group-hover:text-itsy-blue',
+        featured ? 'text-xl md:text-2xl' : 'text-lg'
+      ]">
         {{ post.title }}
       </h3>
 
@@ -50,8 +56,8 @@
           {{ post.readTime || '~1 min read' }}
         </span>
         <NuxtLink
-            :to="post.url || '/news/' + (post.slug || 'article')"
-            class="read-more-link font-medium text-itsy-red hover:text-itsy-red/80 transition-colors flex items-center"
+          :to="post.url || '/news/' + (post.slug || 'article')"
+          class="read-more-link font-medium text-itsy-red hover:text-itsy-red/80 transition-colors flex items-center"
         >
           Read More
           <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
