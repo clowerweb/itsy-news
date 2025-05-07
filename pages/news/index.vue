@@ -70,7 +70,6 @@
       <section v-for="category in categories" :key="category.slug" class="category-section">
         <div class="flex justify-between items-center mb-6 pb-2 border-b border-itsy-black/10">
           <h2 class="text-2xl font-bold flex items-center">
-            <span class="bg-gradient-to-r from-itsy-blue to-itsy-teal w-2 h-6 inline-block mr-3 rounded-sm"></span>
             <span class="mr-2 bg-itsy-blue/10 text-itsy-blue p-1 rounded flex items-center"><i class="material-icons">{{ category.icon }}</i></span>
             {{ category.name }}
           </h2>
