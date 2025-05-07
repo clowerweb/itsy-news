@@ -6,14 +6,14 @@
 
   // Define categories with sample articles
   const categories = [
-    { name: 'Politics', slug: 'politics', icon: '🏛️' },
-    { name: 'Business', slug: 'business', icon: '💼' },
-    { name: 'Technology', slug: 'technology', icon: '💻' },
-    { name: 'Entertainment', slug: 'entertainment', icon: '🎬' },
-    { name: 'Health', slug: 'health', icon: '🏥' },
-    { name: 'Science', slug: 'science', icon: '🔬' },
-    { name: 'Sports', slug: 'sports', icon: '⚽' },
-    { name: 'World', slug: 'world', icon: '🌎' }
+    { name: 'Politics', slug: 'politics', icon: 'account_balance' },
+    { name: 'Business', slug: 'business', icon: 'business_center' },
+    { name: 'Technology', slug: 'technology', icon: 'computer' },
+    { name: 'Entertainment', slug: 'entertainment', icon: 'movie' },
+    { name: 'Health', slug: 'health', icon: 'local_hospital' },
+    { name: 'Science', slug: 'science', icon: 'science' },
+    { name: 'Sports', slug: 'sports', icon: 'sports_soccer' },
+    { name: 'World', slug: 'world', icon: 'public' }
   ];
 
   // For demonstration, assign articles to categories randomly
@@ -59,7 +59,7 @@
           :to="`/news/${category.slug}`"
           class="px-4 py-2 bg-white border border-itsy-black/5 rounded-full inline-flex items-center hover:bg-itsy-teal/10 hover:border-itsy-teal/30 transition-all duration-200 shadow-sm hover:shadow"
         >
-          <span class="mr-2 text-xl">{{ category.icon }}</span>
+          <span class="mr-2 text-xl flex items-center"><i class="material-icons">{{ category.icon }}</i></span>
           <span class="font-medium">{{ category.name }}</span>
         </NuxtLink>
       </div>
@@ -71,7 +71,7 @@
         <div class="flex justify-between items-center mb-6 pb-2 border-b border-itsy-black/10">
           <h2 class="text-2xl font-bold flex items-center">
             <span class="bg-gradient-to-r from-itsy-blue to-itsy-teal w-2 h-6 inline-block mr-3 rounded-sm"></span>
-            <span class="mr-2 bg-itsy-blue/10 text-itsy-blue p-1 rounded">{{ category.icon }}</span>
+            <span class="mr-2 bg-itsy-blue/10 text-itsy-blue p-1 rounded flex items-center"><i class="material-icons">{{ category.icon }}</i></span>
             {{ category.name }}
           </h2>
           <NuxtLink

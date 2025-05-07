@@ -18,12 +18,12 @@
 
   // Define categories with icons
   const categories = [
-    { name: 'Politics', slug: 'politics', icon: '🏛️' },
-    { name: 'Business', slug: 'business', icon: '💼' },
-    { name: 'Technology', slug: 'technology', icon: '💻' },
-    { name: 'Entertainment', slug: 'entertainment', icon: '🎬' },
-    { name: 'Health', slug: 'health', icon: '🏥' },
-    { name: 'Science', slug: 'science', icon: '🔬' },
+    { name: 'Politics', slug: 'politics', icon: 'account_balance' },
+    { name: 'Business', slug: 'business', icon: 'business_center' },
+    { name: 'Technology', slug: 'technology', icon: 'computer' },
+    { name: 'Entertainment', slug: 'entertainment', icon: 'movie' },
+    { name: 'Health', slug: 'health', icon: 'local_hospital' },
+    { name: 'Science', slug: 'science', icon: 'science' },
   ];
 
   // Set page metadata
@@ -38,8 +38,8 @@
 <template>
   <!-- Hero Section -->
   <Hero
-    :heading="'<span class=\'text-itsy-yellow\'>Quick</span> news. <span class=\'text-itsy-yellow\'>No</span> fluff.'"
-    :text="'Stay informed with quick 1-minute reads'"
+    :heading="'<span class=\'text-itsy-yellow\'>Quick</span> news. <span class=\'text-itsy-yellow\'>No fluff</span>.'"
+    :text="'Stay informed with quick ~1-minute reads'"
     :cta="{ link: '/news', text: 'Browse All News' }"
   />
 
@@ -112,11 +112,12 @@
         v-for="category in categories" 
         :key="category.slug"
         :to="`/news/${category.slug}`"
-        class="group bg-white border border-itsy-black/5 shadow-sm hover:shadow-md rounded-lg p-6 text-center transition-all duration-300 hover:-translate-y-1 flex flex-col items-center justify-center"
+        class="group bg-white border border-itsy-black/5 shadow-sm hover:shadow-md rounded-lg p-6 text-center transition-all duration-300 flex flex-col items-center justify-center"
       >
-        <div class="category-icon bg-gradient-to-br from-itsy-teal/20 to-itsy-blue/20 text-itsy-blue p-3 rounded-full mb-3 text-2xl transition-all duration-300 group-hover:bg-itsy-blue group-hover:text-itsy-white">
-          {{ category.icon || '📰' }}
+        <div class="category-icon bg-gradient-to-br from-itsy-teal/20 to-itsy-blue/20 text-itsy-blue p-3 rounded-full mb-3 text-2xl transition-all duration-300 group-hover:bg-itsy-blue group-hover:text-itsy-white w-12 h-12 flex items-center justify-center">
+          <span class="material-icons">{{ category.icon }}</span>
         </div>
+
         <h3 class="font-bold text-lg text-itsy-black">{{ category.name }}</h3>
       </NuxtLink>
     </div>
