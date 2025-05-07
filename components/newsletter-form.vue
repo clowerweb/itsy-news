@@ -4,7 +4,9 @@
     <div class="max-w-3xl mx-auto text-center">
       <section class="my-4">
         <div class="md:max-w-2/3 relative z-10">
-          <h2 class="text-2xl font-bold mb-4">Stay Updated with Itsy News</h2>
+          <h2 class="text-2xl font-bold mb-4">
+            <span class="text-itsy-yellow">Stay Updated</span> with Itsy News
+          </h2>
           <p class="mb-6">Get the latest news summaries delivered straight to your inbox.</p>
 
           <div class="flex flex-col md:flex-row gap-3">
