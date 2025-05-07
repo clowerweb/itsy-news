@@ -44,30 +44,13 @@
 
 <template>
   <div>
-    <!-- Improved Page Header with modern design -->
-    <div class="bg-gradient-to-r from-itsy-blue via-itsy-blue/90 to-itsy-blue/80 rounded-xl p-8 md:p-10 mb-12 text-itsy-white relative overflow-hidden shadow-lg">
-      <div class="relative z-10 max-w-2xl">
-        <h1 class="text-3xl md:text-4xl font-bold mb-3 flex items-center">
-          <span class="bg-itsy-yellow text-itsy-black rounded px-2 py-1 mr-3 shadow-sm">News</span>
-          <span>Categories</span>
-        </h1>
-        <p class="text-itsy-white/90 text-lg leading-relaxed">Browse all our condensed news stories by category</p>
-      </div>
-      <!-- Abstract geometric pattern overlay -->
-      <div class="absolute right-0 top-0 w-full h-full opacity-10 pointer-events-none">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 800">
-          <defs>
-            <pattern id="pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M0,40 L40,0 L80,40 L40,80 Z" fill="none" stroke="#ffffff" stroke-width="1.5"/>
-              <circle cx="40" cy="40" r="3" fill="#ffffff"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#pattern)"/>
-        </svg>
-      </div>
-    </div>
+    <!-- Hero Section -->
+    <Hero
+      :heading="'<span class=\'text-itsy-yellow\'>News</span> Categories'"
+      :text="'Browse all our condensed news stories by category'"
+    />
 
-    <!-- Improved Category Navigation Pills -->
+    <!-- Category Navigation Pills -->
     <div class="mb-12 overflow-x-auto category-nav-container">
       <div class="flex space-x-3 min-w-max p-1">
         <NuxtLink
@@ -82,7 +65,7 @@
       </div>
     </div>
 
-    <!-- All Categories Grid with improved design -->
+    <!-- All Categories Grid -->
     <div class="space-y-16">
       <section v-for="category in categories" :key="category.slug" class="category-section">
         <div class="flex justify-between items-center mb-6 pb-2 border-b border-itsy-black/10">
@@ -127,7 +110,7 @@
       </section>
     </div>
 
-    <!-- Newsletter form with more modern design -->
+    <!-- Newsletter form -->
     <section class="bg-gradient-to-r from-itsy-teal/10 to-itsy-blue/10 rounded-xl p-8 my-12">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-2xl font-bold mb-3 text-itsy-black">Stay Updated with Itsy News</h2>
@@ -147,7 +130,7 @@
   padding-bottom: 0;
 }
 
-/* Enhanced smooth transitions */
+/* Smooth transitions */
 .category-section {
   animation: fadeInUp 0.6s ease forwards;
   opacity: 0;
@@ -170,7 +153,7 @@
   }
 }
 
-/* Improved category navigation */
+/* Category navigation */
 .category-nav-container {
   border-radius: 9999px;
   background: linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0.8));
