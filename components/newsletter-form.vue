@@ -9,7 +9,7 @@ const props = defineProps({});
       <h2 class="text-2xl font-bold mb-3 text-itsy-black">Stay Updated with Itsy News</h2>
       <p class="text-itsy-black/70 mb-6">Get the latest condensed news delivered straight to your inbox</p>
 
-      <section class="my-16">
+      <section class="mt-16 mb-4">
         <div class="bg-gradient-to-r from-itsy-red to-itsy-red/90 rounded-xl p-8 text-itsy-white relative overflow-hidden">
           <div class="md:max-w-2/3 relative z-10">
             <h2 class="text-2xl font-bold mb-4">Stay Updated with Itsy News</h2>
@@ -20,7 +20,7 @@ const props = defineProps({});
                 Subscribe
               </button>
             </div>
-            <p class="text-xs mt-3 text-amber-100">We respect your privacy. Unsubscribe at any time.</p>
+            <p class="text-xs mt-6 text-amber-100">We respect your privacy. Unsubscribe at any time.</p>
           </div>
           <!-- Abstract pattern overlay -->
           <div class="absolute right-0 top-0 w-full h-full opacity-10 pointer-events-none">
@@ -30,8 +30,6 @@ const props = defineProps({});
           </div>
         </div>
       </section>
-
-      <p class="text-xs text-itsy-black/50 mt-4">We respect your privacy. Unsubscribe at any time.</p>
     </div>
   </section>
 </template>
